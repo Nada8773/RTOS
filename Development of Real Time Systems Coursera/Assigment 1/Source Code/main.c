@@ -88,6 +88,7 @@ choice.  See http://www.freertos.org/a00111.html for an explanation. */
 extern void main_blinky( void );
 extern void main_full( void );
 extern void main_task(void);
+extern void main_task(void);
 /*
  * Only the comprehensive demo uses application hook (callback) functions.  See
  * http://www.freertos.org/a00016.html for more information.
@@ -102,7 +103,6 @@ void vFullDemoIdleFunction( void );
  * http://www.freertos.org/a00111.html for an explanation.
  */
 static void  prvInitialiseHeap( void );
-
 
 /*
  * Performs a few sanity checks on the behaviour of the vPortGetHeapStats()
@@ -143,6 +143,7 @@ static BaseType_t xTraceRunning = pdTRUE;
 
 int main( void )
 {
+	printf("Hello");
 	/* This demo uses heap_5.c, so start by defining some heap regions.  heap_5
 	is only used for test and example reasons.  Heap_4 is more appropriate.  See
 	http://www.freertos.org/a00111.html for an explanation. */
@@ -159,23 +160,12 @@ int main( void )
 		configASSERT() is called. */
 		printf( "\r\nTrace started.\r\nThe trace will be dumped to disk if a call to configASSERT() fails.\r\n" );
 		printf( "Uncomment the call to kbhit() in this file to also dump trace with a key press.\r\n" );
-	//	uiTraceStart();
-	}
-	#endif
+		uiTraceStart();
+         }#endif
+	
+	
+	main_task();
 
-	/* The mainCREATE_SIMPLE_BLINKY_DEMO_ONLY setting is described at the top
-	of this file. */
-	#if ( mainCREATE_SIMPLE_BLINKY_DEMO_ONLY == 1 )
-	{
-		//main_blinky();
-		main_task();
-	}
-	#else
-	{
-		main_full();
-
-	}
-	#endif
 
 	return 0;
 }
