@@ -1,3 +1,4 @@
+## Overview
 In this assignment you will implement some functionalities learned from the theoretical lessons. We continue using FreeRTOS and some of its more advanced features. In this example we will focus on task priorities. We have one high intensity task which uses much of the CPU and one sparse intensity task which mainly uses I/O. The task here is to handle the priorities of the tasks to make sure that no tasks miss the deadline. You will also learn how to measure time in FreeRTOS to evaluate the feasibility of a real-time system in practice.
 
 After completing this assignment, you will be able to:
@@ -7,7 +8,7 @@ Measure time in FreeRTOS
 Use call back hooks in FreeRTOS
 Pre-requisite
 
--Create a task "matrixtask" containing the following functionality:
+- Create a task "matrixtask" containing the following functionality:
 
 ```
 #define SIZE 10
@@ -64,7 +65,7 @@ static void matrix_task()
 
 ```
 
--Create a task "communicationtask" containing the following functionality:
+- Create a task "communicationtask" containing the following functionality:
 ```
 static void communication_task()
 {
@@ -78,14 +79,14 @@ static void communication_task()
 	}
 }
 ```
--Create the tasks in FreeRTOS with the task creation call:
+- Create the tasks in FreeRTOS with the task creation call:
 ```
 xTaskCreate((pdTASK_CODE)matrix_task, (signed char *)"Matrix", 1000, NULL, 3, &matrix_handle);
 xTaskCreate((pdTASK_CODE)communication_task, (signed char *)"Communication", configMINIMAL_STACK_SIZE, NULL, 1, &communication_handle);
 ```
--"communicationtask" must send a simulated data packet every 200ms but is often blocked by matrixtask, fix this problem without changing the functionality in the tasks.
+- "communicationtask" must send a simulated data packet every 200ms but is often blocked by matrixtask, fix this problem without changing the functionality in the tasks.
 
--Create a new task "prioritysettask" which:
+- Create a new task "prioritysettask" which:
 
 Sets the priority of "communicationtask" to 4 in case its execution time is more than 1000 milliseconds (Hint: look at vApplicationTickHook() to measure it)
 Sets the priority of "communicationtask" to 2 in case its execution time is less than 200 milliseconds (Hint: look at vApplicationTickHook() to measure it)
