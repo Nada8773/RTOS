@@ -8,10 +8,10 @@ types of tasks. Then we will use FreeRTOS to implement non-periodic jobs in prac
 With the previously learned skills in measuring time,we will measure the response time 
 of non-periodic jobs and argue for or against a given schedule.
 
-####### Task1
+###### Task1
 Consider the tasks T1(3, 0.5), T2(4, 1.5, 3), T3(7, 1.0, 5) and the EDF scheduler. 
 A sporadic job arrives at t=50 having the execution time of 10 and a relative deadline of 30. 
-Create the sporadic task in SimSo by selecting: îgenerate task setî and then list of act. 
+Create the sporadic task in SimSo by selecting: ‚Äùgenerate task set‚Äù and then list of act. 
 Dates to the release time
 
 - Use SimSo to schedule the task set and provide a report answering the following questions:
@@ -21,10 +21,10 @@ Dates to the release time
  - Is the sporadic job meeting its deadline?
  - What is the response time for the sporadic job?
 
-####### Task2
+###### Task2
 Consider the tasks T1(3, 0.5), T2(4, 1.5, 3), T3(7, 1.0, 5) and the RM scheduler. 
 A sporadic job arrives at t=50 having the execution time of 10 and a relative deadline of 30. 
-Create the sporadic task in SimSo by selecting: îgenerate task setî and then list of act. 
+Create the sporadic task in SimSo by selecting: ‚Äùgenerate task set‚Äù and then list of act. 
 Dates to the release time
 
 -Use SimSo to schedule the task set and provide a report answering the following questions:
